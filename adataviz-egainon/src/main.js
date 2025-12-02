@@ -1,7 +1,9 @@
 // import './style.css'
 //https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbresremarquablesparis/records?limit=20
 
-const app = document.getElementById("app");
+const container = document.getElementById("container");
+const texte = document.querySelector("#texteCache");
+
 
 async function getData(){
   try{
@@ -10,44 +12,68 @@ async function getData(){
      console.log(apiData);
 
     for (let i = 0; i < apiData.results.length ; i++){
+      //Carte d'identité arbre
+      const card = document.createElement("div");
+      card.classList.add("arbre-card");
 
+      //image
       const image = document.createElement("img");
       image.src = apiData.results[i].com_url_photo1;
-      app.appendChild(image);
+      card.appendChild(image);
 
+      //titre (nom de l'arbre)
       const title = document.createElement("h2");
       title.innerHTML = apiData.results[i].arbres_libellefrancais;
-      app.appendChild(title);
+      card.appendChild(title);
 
+      // sous-titre (nom usuel arbre)
       const subTitle = document.createElement("h3");
       subTitle.innerHTML = apiData.results[i].com_nom_usuel;
-      app.appendChild(subTitle);
+      card.appendChild(subTitle);
 
+      // sous-sous-titre (nom latin)
       const subSubTitle = document.createElement("h4");
-     subSubTitle.innerHTML = apiData.results[i].com_nom_latin;
-      app.appendChild(subSubTitle);
+      subSubTitle.innerHTML = apiData.results[i].com_nom_latin;
+      card.appendChild(subSubTitle);
 
-      const text = document.createElement("p");
-      text.innerHTML = apiData.results[i].com_descriptif;
-      app.appendChild(text);
+      //paragraphe (description arbre : cachée au départ)
+      const description = document.createElement("p");
+      description.innerHTML = apiData.results[i].com_descriptif;
+      description.style.display = "none";
+      card.appendChild(description);
 
-      //adresse : arbres_adresse
+      // //adresse : arbres_adresse
+      // const textAdresse = document.createElement("p");
+      // textAdresse.innerHTML = apiData.results[i].arbres_adresse;
+      // card.appendChild(textAdresse);
 
+     
+      //bouton Voir plus
+      const buttonCache = document.createElement("button");
+      buttonCache.innerHTML = "Voir plus";
 
-      //creer bouton
-      // com_url_pdf
-      // let btn = document.createElement("BUTTON");        // Créer un élément <button>
-      // let t = document.createTextNode("CLICK ME");       // Créer un noeud textuel
-      // btn.appendChild(t);                                // Ajouter le texte au bouton
-      // document.body.appendChild(btn);                    // Ajoute la balise <button> à la balise <body>
-    
+      buttonCache.addEventListener("click", function () {
+        if (description.style.display === "none") {
+          description.style.display = "block";
+          buttonCache.innerHTML = "Voir moins";
+        } else {
+          description.style.display = "none";
+          buttonCache.innerHTML = "Voir plus";
+        }
+      });
+
+      card.appendChild(buttonCache);
+
+      // On ajoute la carte au container
+      container.appendChild(card);
+
 
     console.log();
    
     }
 
   } catch(error) {
-         console.log("Erreur :", error);
+         console.log(error);
     }
 }
 getData();
