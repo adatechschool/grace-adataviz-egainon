@@ -3,21 +3,34 @@
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-    <script defer src="/src/main.js"></script>
+  
+    <link rel="stylesheet" href="style.css"/>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>adataviz-egainon</title>
   </head>
-  <body>
+  <body class="container">
+
     <header>
-    <h1>Fiches — Arbres remarquables Paris</h1>
+    <div class = "titre">
+    <h1>Carte d'identité <br/>Arbres remarquables Paris</h1>
+    </div>
+    <div class = "presa">
       <p id = "definition">
       "Les arbres remarquables de France sont des arbres vivants exceptionnels par leur âge, leurs dimensions, leur forme, leur passé ou encore leur légende. Ces ligneux représentent un patrimoine naturel et culturel qui doit être conservé. Certains ont été classés « monument naturel » par l'État dans les années 1930 et le dernier est le platane de Cézy en 2018 après six ans de procédure." (Wikipedia) 
       </p>
+    </div>
+    <div class = "recherche">
+      <div class="search-container">
+      <input type="text" id="search-box" class="search-box" placeholder="Rechercher" />
+      </div>
+    </div>
     </header>
-    <!-- Conteneur où JS ajoutera les fiches d'identé des arbres -->
-    <div id="container"></div>
-
-  </body>
-</html>
+    <main>
+    <!-- Conteneur pour les fiches d'identé des arbres -->
+    <div id="containerCard"></div>
+    </main>
+    <footer>
+    </footer>
+  <script type="module" src="/src/main.js"></script>
   </body>
 </html>

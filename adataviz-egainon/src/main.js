@@ -1,9 +1,7 @@
-// import './style.css'
-//https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbresremarquablesparis/records?limit=20
+import './style.css'
 
-const container = document.getElementById("container");
-const texte = document.querySelector("#texteCache");
-
+const container = document.getAnimations("container");
+const containerCard = document.getElementById("containerCard");
 
 async function getData(){
   try{
@@ -36,7 +34,7 @@ async function getData(){
       subSubTitle.innerHTML = apiData.results[i].com_nom_latin;
       card.appendChild(subSubTitle);
 
-      //paragraphe (description arbre : cachée au départ)
+      //description arbre : cachée au départ)
       const description = document.createElement("p");
       description.innerHTML = apiData.results[i].com_descriptif;
       description.style.display = "none";
@@ -48,12 +46,12 @@ async function getData(){
       // card.appendChild(textAdresse);
 
      
-      //bouton Voir plus
+      //bouton Voir plus/ Vir moins
       const buttonCache = document.createElement("button");
       buttonCache.innerHTML = "Voir plus";
 
-      buttonCache.addEventListener("click", function () {
-        if (description.style.display === "none") {
+      buttonCache.addEventListener("click", function () { 
+        if (description.style.display === "none") { //si clic et style none
           description.style.display = "block";
           buttonCache.innerHTML = "Voir moins";
         } else {
@@ -64,8 +62,10 @@ async function getData(){
 
       card.appendChild(buttonCache);
 
-      // On ajoute la carte au container
-      container.appendChild(card);
+      // On ajoute la carte au containerCard
+      containerCard.appendChild(card);
+
+      //barre de recherche (ne pas oublier message d'erreur)
 
 
     console.log();
