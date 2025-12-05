@@ -50,12 +50,12 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
 
       // sous-titre (nom usuel arbre)
       const subTitle = document.createElement("h3");
-      subTitle.innerHTML = trees[i].com_nom_usuel;
+      subTitle.innerHTML = `Nom usuel : ${trees[i].com_nom_usuel}`;
       card.appendChild(subTitle);
 
       // sous-sous-titre (nom latin)
       const subSubTitle = document.createElement("h4");
-      subSubTitle.innerHTML = trees[i].com_nom_latin;
+      subSubTitle.innerHTML = `Nom latin : ${trees[i].com_nom_latin}`;
       card.appendChild(subSubTitle);
 
       //description arbre : cachée au départ)
