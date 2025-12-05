@@ -45,22 +45,65 @@ body {
 }
 
 /* recherche */
-.search-container { 
-  width: 100%; display: flex; 
-  justify-content: center;
+.search-container {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  margin: 0 auto;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
 #search-box {
-  width: 100%;
-  max-width: 520px;
-  padding: 0.6rem 0.9rem;
+  width: 70%;
+  padding: 12px 48px 12px 15px; /* padding-right réservé pour l'icône */
   border-radius: 10px;
   border: 1px solid #0E402D;
   background: rgba(255,255,255,0.03);
-  color: #0E402D;
-  padding-bottom: 1rem;
+  color: rgba(255,255,255,0.92); /* texte clair sur fond sombre */
+  font-size: 1rem;
+  display: block;
+  box-sizing: border-box;
 }
+.no-results {
+  text-align: center;
+  padding: 2rem;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+/* bouton icône positionné à l'intérieur de la barre, collé à droite */
+.icon-button {
+  position: absolute;
+  top: 38%;
+  right: 20%;                 /* distance du bord droit */
+  transform: translateY(-50%);
+  border: none;
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 50x;                /* aide au centrage si nécessaire */
+  width: 50px;
+}
+
+/* image dans le bouton */
+.icon-button img {
+  width: 30px;
+  height: 30px;
+  display: block;
+  pointer-events: none; /* évite doublons d'événements de clic */
+}
+
+/* focus style */
+#search-box:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(14,64,45,0.18);
+  border-color: #6E7B64;
+}
+
 #search-box::placeholder { 
   color: rgba(255,255,255,0.5); 
 }
