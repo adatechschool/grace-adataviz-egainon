@@ -3,7 +3,6 @@ import './style.css'
 const container = document.getElementById("container");
 const containerCard = document.getElementById("containerCard");
 const searchBox = document.getElementById("search-box");
-const iconButton = document.getElementById("icon-button");
 
 const fieldsForSearch = ["com_nom_usuel", "com_nom_latin","arbres_libellefrancais", "com_descriptif"];
 let allTrees = []; //pour stocker les arbres
@@ -14,7 +13,7 @@ async function getData(){
      const apiData = await response.json();
      console.log(apiData);
 
-    allTrees = apiData.results; // Sauvegarde les données
+    allTrees = apiData.results; // Sauvegarde les données dans allTrees
     displayTrees(allTrees); // Affiche tous les arbres
 
         console.log();
@@ -41,6 +40,7 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
       //image
       const image = document.createElement("img");
       image.src = trees[i].com_url_photo1;
+      image.alt = `Photo de ${trees[i].com_nom_usuel}`;//texte alernatif pour photos
       card.appendChild(image);
 
       //titre (nom de l'arbre)
@@ -63,12 +63,6 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
       description.innerHTML = trees[i].com_descriptif;
       description.style.display = "none";
       card.appendChild(description);
-
-      // //adresse : arbres_adresse
-      // const textAdresse = document.createElement("p");
-      // textAdresse.innerHTML = apiData.results[i].arbres_adresse;
-      // card.appendChild(textAdresse);
-
      
       //bouton Voir plus/ Voir moins
       const buttonCache = document.createElement("button");
@@ -127,11 +121,6 @@ function searchTrees(recherche) {//ce que l'on tape
 // Événement sur la barre de recherche
 searchBox.addEventListener("input", (event) => {
   searchTrees(event.target.value);
-});
-
-// Événement sur le bouton (recherche au clic)
-iconButton.addEventListener("click", () => {
-  searchTrees(searchBox.value);
 });
 
 // Recherche avec la touche Entrée

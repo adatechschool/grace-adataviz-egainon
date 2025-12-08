@@ -5,16 +5,16 @@
   padding: 0; 
 }
 
-/* Palette couleurs naturelles arbres */
+/* Palette couleurs naturelles arbres - Contrastes améliorés */
 :root {
-  --forest-dark: #1a3a2e;      /* vert forêt sombre */
-  --forest-main: #2d5a3d;      /* vert forêt principal */
-  --leaf-green: #4a7c59;       /* vert feuillage */
-  --bark-brown: #5c4033;       /* brun écorce */
-  --wood-beige: #d4a574;       /* beige bois */
-  --moss-light: #8b9d83;       /* vert mousse clair */
+  --forest-dark: #0d2418;      /* vert forêt très sombre */
+  --forest-main: #1a3a2e;      /* vert forêt principal */
+  --leaf-green: #2d5a3d;       /* vert feuillage */
+  --bark-brown: #3d2a1f;       /* brun écorce - plus sombre */
+  --wood-beige: #b8884a;       /* beige bois */
+  --moss-light: #5a6b52;       /* vert mousse - plus sombre */
   --sky-bg: #f5f8f4;           /* fond clair naturel */
-  --earth-accent: #a67c52;     /* terre/bois accent */
+  --earth-accent: #8b5e34;     /* terre/bois accent - plus sombre */
 }
 
 /* mobile-first */
@@ -34,13 +34,19 @@ body {
   padding: 1rem;
 }
 
-/* header style */
+/* style du header*/
 .site-header {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 0.5rem;
   margin-bottom: 1rem;
+}
+
+.titre {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .titre h1 {
@@ -52,11 +58,18 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
+#iconeArbre {
+  max-width: 12%;
+	height: auto;
+}
+
 .presa p#definition {
+  display: flex;
+  align-items: center;
   font-style: italic;
   max-width: auto;
   text-align: center;
-  color: var(--forest-main);
+  color: var(--forest-dark);
   margin: 1.5rem 2rem;
   line-height: 1.6;
   font-size: 1.05rem;
@@ -64,10 +77,10 @@ body {
 
 /* recherche */
 .search-container {
-  position: relative;
+  position: left;
   width: 100%;
-  max-width: 500px;
-  margin: 0 auto;
+  max-width: 800px;
+  margin: 0;
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
 }
@@ -90,39 +103,7 @@ body {
   text-align: center;
   padding: 2rem;
   font-size: 1.2rem;
-  color: var(--moss-light);
-}
-
-/* bouton icône */
-.icon-button {
-  position: absolute;
-  top: 38%;
-  right: 20%;
-  transform: translateY(-50%);
-  border: none;
-  background: var(--leaf-green);
-  padding: 8px;
-  margin: 0;
-  cursor: pointer;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: all 0.3s ease;
-  box-shadow: 0 2px 6px rgba(45, 90, 61, 0.2);
-}
-
-.icon-button:hover {
-  background: var(--forest-main);
-  transform: translateY(-50%) scale(1.1);
-}
-
-.icon-button img {
-  width: 24px;
-  height: 24px;
-  display: block;
-  pointer-events: none;
-  filter: brightness(0) invert(1); /* rend l'icône blanche */
+  color: var(--forest-dark);
 }
 
 /* focus style */
@@ -197,7 +178,7 @@ body {
 .arbre-card h3 { 
   font-size: 1rem;
   font-style: italic; 
-  color: var(--earth-accent);
+  color: var(--bark-brown);
   font-weight: 600;
 }
 
@@ -211,7 +192,7 @@ body {
 .arbre-card p {
   line-height: 1.6; 
   font-size: 0.95rem;
-  color: var(--forest-main);
+  color: var(--forest-dark);
   text-align: left;
 }
 
@@ -255,23 +236,38 @@ button:active {
   .site-header {
     grid-column: 1 / 2;
     width: 100%;
-    align-items: start;
+    align-items: center;
     padding-right: 2rem;
+  }
+
+  .titre {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 1.5rem 1rem;
   }
 
   .titre h1 {
     font-size: 2.8rem;
-    text-align: left;
+    text-align: center;
+  }
+
+  #iconeArbre {
+    max-width: 12%;
+	  height: auto;
   }
 
   .presa p#definition {
-    text-align: left;
-    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    text-align: justify;
+    margin: 1.5rem 1rem;
   }
 
   .search-container {
     margin: 0;
   }
+
 
   .cards-area {
     grid-column: 2 / 3;
@@ -286,13 +282,5 @@ button:active {
 
   .arbre-card img { 
     height: 220px; 
-  }
-}
-
-/* Version tablet */
-@media (min-width: 768px) and (max-width: 1023px) {
-  #containerCard {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
   }
 }

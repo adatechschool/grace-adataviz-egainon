@@ -1,18 +1,21 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
-  
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" /> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Young+Serif&display=swap" rel="stylesheet">
     <!-- <link rel="stylesheet" href="style.css"/> -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>adataviz-egainon</title>
   </head>
   <body class="container">
 
-    <header>
+    <header class="site-header">
     <div class = "titre">
     <h1>Carte d'identité <br/>Arbres remarquables Paris</h1>
+    <img src= "/src/images/dessin_abre_sans_BG.png" alt="dessin d'arbre" id="iconeArbre">
     </div>
     <div class = "presa">
       <p id = "definition">
@@ -20,12 +23,11 @@
       </p>
     </div>
     <!-- barre de recherche avec icone arbre -->
-    <div class = "recherche">
-    <input type="text" id="search-box" class="search-box" placeholder="Rechercher...">
-    <button id="icon-button" class="icon-button"><img src="/src/images/icone_arbre.png" alt="icone arbre"></button>
-    </div>
+    <div class = "search-container">
+    <input type="text" id="search-box" placeholder="Rechercher">
+     </div>
     </header>
-    <main>
+    <main class="card-area">
     <!-- Conteneur pour les fiches d'identé des arbres -->
     <div id="containerCard"></div>
     </main>
