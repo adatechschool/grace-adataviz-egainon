@@ -58,6 +58,11 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
       subSubTitle.innerHTML = `Nom latin : ${trees[i].com_nom_latin}`;
       card.appendChild(subSubTitle);
 
+      // pdf de l'arbre 
+      const buttonArbre = document.createElement("button");
+      buttonArbre.innerHTML = `<a href= "${trees[i].com_url_pdf}" target="_blank">Télécharger la fiche</a>`;
+      card.appendChild(buttonArbre);
+
       //description arbre : cachée au départ)
       const description = document.createElement("p");
       description.innerHTML = trees[i].com_descriptif;
