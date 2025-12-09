@@ -89,6 +89,7 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
 
     }
   }
+
 // Barre de recherche, pour filtrer les arbres
 function searchTrees(recherche) {//ce que l'on tape
   const cleanSearch = recherche.toLowerCase().trim();//nettoyage de la saisie
