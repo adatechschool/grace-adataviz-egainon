@@ -1,6 +1,5 @@
 import './style.css';
 
-const container = document.getElementById("container");
 const containerCard = document.getElementById("containerCard");
 const searchBox = document.getElementById("search-box");
 
@@ -10,16 +9,17 @@ let allTrees = []; //pour stocker les arbres
 async function getData(){
   try{
      const response = await fetch("https://opendata.paris.fr/api/explore/v2.1/catalog/datasets/arbresremarquablesparis/records?limit=20");
+    // const response = await fetch();
      const apiData = await response.json();
      console.log(apiData);
 
     allTrees = apiData.results; // Sauvegarde les données dans allTrees
     displayTrees(allTrees); // Affiche tous les arbres
 
-        console.log();
    
   } catch(error) {
-         containerCard.innerHTML = "<p class='error'>Erreur de chargement. Veuillez réessayer.</p>";
+         containerCard.innerHTML = "<p class='error'>La forêt ne répond pas… Impossible de charger les données. Veuillez réessayer 🍃</p>";
+         console.log(apiData);
     }
   }
 
@@ -28,7 +28,7 @@ function displayTrees(trees) { //trees est la liste d'arbres à afficher
 containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
   
   if (trees.length === 0) {//si aucun arbre
-    containerCard.innerHTML = "<p>Aucun arbre trouvé pour votre recherche</p>";
+    containerCard.innerHTML = "<p>Aucun arbre trouvé pour votre recherche 🌳</p>";
     return;
   }
 

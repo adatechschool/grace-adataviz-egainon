@@ -58,10 +58,6 @@ body {
   text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
 }
 
-#lienAsso {
-  color: var(--forest-dark);
-}
-
 p span {
   font-weight: bold;
   color: var(--forest-dark);
