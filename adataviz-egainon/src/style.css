@@ -20,12 +20,12 @@
 /* mobile-first */
 body {
   font-family: 'Georgia', 'Times New Roman', serif;
-  background: linear-gradient(135deg, var(--sky-bg) 0%, #e8f0e5 100%);
+  background-image: url("./images/fond-feuilles-transparent-10.png");
   color: var(--forest-dark);
   min-height: 100vh;
 }
 
-/* ROOT (desktop grid) */
+/* ROOT (grid) */
 .root {
   display: grid;
   grid-template-columns: 1fr;
@@ -67,18 +67,13 @@ p span {
   color: var(--forest-dark);
 }
 
-/* #iconeArbre {
-  max-width: 12%;
-	height: auto;
-} */
-
 .presa p#definition {
   max-width: auto;
   text-align: center;
   color: var(--forest-dark);
   margin: 1.5rem 2rem;
   line-height: 1.6;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
 /* recherche */
@@ -229,11 +224,11 @@ button:active {
 }
 
 a{
-  color: white;
+  color: var(--forest-dark);
 }
 
 a:visited {
-  color:  rgb(231, 183, 183);
+  color: purple;
 }
 
 /* --- media queries pour desktop --- */
@@ -266,14 +261,10 @@ a:visited {
     text-align: center;
   }
 
-  /* #iconeArbre {
-    max-width: 12%;
-	  height: auto;
-  } */
-
   .presa p#definition {
     text-align: justify;
-    margin: 1.5rem 4rem;
+    margin: 1.5rem;
+    font-size: 1.2rem;
   }
 
   .search-container {

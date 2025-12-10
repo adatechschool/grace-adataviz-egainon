@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 
 const container = document.getElementById("container");
 const containerCard = document.getElementById("containerCard");
@@ -19,7 +19,7 @@ async function getData(){
         console.log();
    
   } catch(error) {
-         console.log(error);
+         containerCard.innerHTML = "<p class='error'>Erreur de chargement. Veuillez réessayer.</p>";
     }
   }
 
@@ -40,7 +40,7 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
       //image
       const image = document.createElement("img");
       image.src = trees[i].com_url_photo1;
-      image.alt = `Photo de ${trees[i].com_nom_usuel}`;//texte alernatif pour photos
+      image.alt = `Photo de ${trees[i].com_nom_usuel}  || "arbre"`;//texte alernatif pour photos
       card.appendChild(image);
 
       //titre (nom de l'arbre)
@@ -59,13 +59,13 @@ containerCard.innerHTML = ""; // Vide le conteneur, on repart de zero
       card.appendChild(subSubTitle);
 
       // pdf de l'arbre 
-      const buttonArbre = document.createElement("button");
-      buttonArbre.innerHTML = `<a href= "${trees[i].com_url_pdf}" target="_blank">Télécharger la fiche</a>`;
-      card.appendChild(buttonArbre);
+      const lienArbre = document.createElement("h4");
+      lienArbre.innerHTML = `<a href= "${trees[i].com_url_pdf}" target="_blank">Télécharger la fiche</a>`;
+      card.appendChild(lienArbre);
 
       //description arbre : cachée au départ)
       const description = document.createElement("p");
-      description.innerHTML = trees[i].com_descriptif;
+      description.innerHTML = trees[i].com_descriptif || "Aucune description disponible";//texte alernatif pour descriptif
       description.style.display = "none";
       card.appendChild(description);
      
