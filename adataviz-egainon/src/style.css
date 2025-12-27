@@ -227,6 +227,30 @@ a:visited {
   color: purple;
 }
 
+/* footer */
+footer {
+  text-align: center;
+  padding: 2rem;
+  font-size: 0.9rem;  /* Plus petite typo (au lieu de 1.2rem) */
+  color: var(--forest-dark);
+  background-color: var(--forest-dark);  /* Fond vert foncé */
+  color: white;  /* Texte blanc pour le contraste */
+  margin-top: 2rem;  /* Espace au-dessus */
+}
+
+footer a {
+  color: white;  /* Liens en blanc */
+  text-decoration: underline;  /* Soulignés pour l'accessibilité */
+}
+
+footer a:hover {
+  color: var(--wood-beige);  /* Couleur au survol */
+}
+
+footer a:visited {
+  color: rgba(255, 255, 255, 0.8);  /* Liens visités un peu plus transparents */
+}
+
 /* --- media queries pour desktop --- */
 @media (min-width: 1024px) {
   .root {
@@ -281,4 +305,13 @@ a:visited {
   .arbre-card img { 
     height: 220px; 
   }
+
+  /* Footer en desktop */
+  footer {
+    grid-column: 1 / -1;  /* Prend toute la largeur (de la colonne 1 à la dernière) */
+    margin-top: 3rem;
+    padding: 2rem;
+    font-size: 0.85rem;  /* Encore plus petit sur desktop */
+  }
+
 }
